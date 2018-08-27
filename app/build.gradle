@@ -33,6 +33,8 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.paging:paging-runtime:$pagingVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
 
     kapt "androidx.room:room-compiler:$roomVersion"
     
