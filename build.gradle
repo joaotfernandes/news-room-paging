@@ -7,6 +7,7 @@ ext {
     constraintLayoutVersion = '1.1.2'
     cardviewVersion = '1.0.0-rc01'
     annotationsVersion = '1.0.0-rc01'
+    swipeRefreshLayoutVersion = '1.0.0-rc01'
 
     retrofitVersion = '2.4.0'
     moshiVersion = '1.6.0'
