@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.github.joaotfernandes.newsroompaging.repository.NewsRepository
 import kotlinx.android.synthetic.main.activity_news.articlesRecyclerView
+import kotlinx.android.synthetic.main.activity_news.swipeRefreshLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NewsActivity : AppCompatActivity() {
@@ -20,6 +22,11 @@ class NewsActivity : AppCompatActivity() {
         articlesRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         articlesRecyclerView.adapter = adapter
 
+        swipeRefreshLayout.setOnRefreshListener { viewModel.refresh() }
+
         viewModel.articles.observe(this, Observer { adapter.submitList(it) })
+        viewModel.refreshState.observe(this, Observer {
+            swipeRefreshLayout.isRefreshing = it == NewsRepository.RefreshState.REFRESHING
+        })
     }
 }

@@ -12,6 +12,7 @@ import org.koin.android.ext.android.startKoin
 import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 import java.util.Locale
+import java.util.concurrent.Executors
 
 class NewsApplication : Application() {
 
@@ -21,7 +22,7 @@ class NewsApplication : Application() {
         val module = module {
             single { RetrofitNewsService(BuildConfig.NEWS_API_KEY) as NewsService }
 
-            single { DbNewsRepository(get(), get()) as NewsRepository }
+            single { DbNewsRepository(get(), get(), Executors.newSingleThreadExecutor()) as NewsRepository }
 
             single {
                 Room.databaseBuilder(this@NewsApplication, NewsDb::class.java, DATABASE_NAME)
