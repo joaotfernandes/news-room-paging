@@ -1,5 +1,6 @@
 package com.github.joaotfernandes.newsroompaging.db
 
+import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -10,7 +11,7 @@ import com.github.joaotfernandes.newsroompaging.service.model.Article
 interface ArticleDao {
 
     @Query("select * from articles order by publishedAt desc")
-    fun getArticles(): List<Article>
+    fun getArticles(): DataSource.Factory<Int, Article>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertArticles(articles: List<Article>)
