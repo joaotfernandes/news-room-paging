@@ -1,13 +1,8 @@
 package com.github.joaotfernandes.newsroompaging.paging
 
-import android.util.Log
 import androidx.paging.PagedList
-import com.github.joaotfernandes.newsroompaging.service.model.Article
-import java.util.concurrent.Executors
-
-import com.github.joaotfernandes.newsroompaging.db.NewsDb
-
 import com.github.joaotfernandes.newsroompaging.service.NewsService
+import com.github.joaotfernandes.newsroompaging.service.model.Article
 import com.github.joaotfernandes.newsroompaging.service.model.NewsResponse
 import retrofit2.Response
 import java.util.Date
