@@ -20,16 +20,23 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.95" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/articlesRecyclerView"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:overScrollMode="never"
-        android:paddingBottom="3dp"
         app:layout_constraintBottom_toTopOf="@id/separatorView"
         app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
         app:layout_constraintRight_toRightOf="@id/rightGuideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/articlesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:paddingBottom="3dp" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <View
         android:id="@+id/separatorView"
@@ -38,7 +45,7 @@
         android:background="@color/colorPrimary"
         app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
         app:layout_constraintRight_toRightOf="@id/rightGuideline"
-        app:layout_constraintTop_toBottomOf="@id/articlesRecyclerView"
+        app:layout_constraintTop_toBottomOf="@id/swipeRefreshLayout"
         app:layout_constraintBottom_toTopOf="@id/rightsTextView"/>
 
     <TextView
